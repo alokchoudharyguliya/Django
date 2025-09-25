@@ -1,0 +1,12 @@
+[project]
+name = "graphql"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "django>=5.2.6",
+    "django-cors-headers>=4.9.0",
+    "graphene>=3.4.3",
+    "graphene-django>=3.2.3",
+]
