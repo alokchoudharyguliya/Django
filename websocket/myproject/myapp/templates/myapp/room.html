@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Chat Room</title>
+</head>
+<body>
+    <h2>Room: {{ room_name }}</h2>
+    <textarea id="chat-log" cols="100" rows="20" readonly></textarea><br>
+    <input id="chat-message-input" type="text" size="100"><br>
+    <button id="chat-message-submit">Send</button>
+
+    <script>
+        const roomName = "{{ room_name }}";
+        const chatSocket = new WebSocket(
+            "ws://" + window.location.host + "/ws/chat/" + roomName + "/"
+        );
+
+        chatSocket.onmessage = function(e) {
+            const data = JSON.parse(e.data);
+            document.querySelector("#chat-log").value += (data.message + "\n");
+        };
+
+        document.querySelector("#chat-message-submit").onclick = function(e) {
+            const input = document.querySelector("#chat-message-input");
+            chatSocket.send(JSON.stringify({ "message": input.value }));
+            input.value = "";
+        };
+    </script>
+</body>
+</html>
