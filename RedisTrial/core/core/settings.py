@@ -131,3 +131,12 @@ CACHES = {
         }
     }
 }
+
+
+# # Temporary: Use Django's default cache instead of Redis
+# CACHES = {
+#     'default': {
+#         'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
+#         'LOCATION': 'unique-snowflake',
+#     }
+# }
