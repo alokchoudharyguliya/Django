@@ -8,5 +8,5 @@ class Recipe(models.Model):
     image = models.CharField(max_length=100)
     recipe_name = models.CharField(max_length=100)
     recipe = models.TextField()
-    def __str__(self):
-      return self.recipe_name
+    # def __str__(self):
+    #   return self.recipe_name
